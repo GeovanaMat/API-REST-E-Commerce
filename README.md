@@ -4,7 +4,7 @@
 
 
 ```mermaid
-erDiagram
+EcommerceDiagram
     CUSTOMER {
         string id PK "ID do Cliente"
         string name "Nome"
