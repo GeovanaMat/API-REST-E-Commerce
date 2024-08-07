@@ -43,7 +43,8 @@ erDiagram
 
     CUSTOMER ||--|| PROFILE : has
     CATEGORY ||--o{ PRODUCT : contains
-    PRODUCT }o--o{ ORDER_ITEM : "is part of"
-    ORDER }o--o{ ORDER_ITEM : "includes"
+    PRODUCT ||--o{ ORDER_ITEM : "is part of"
+    ORDER ||--o{ ORDER_ITEM : "contains"
     CUSTOMER ||--o{ ORDER : places
+
 ```
