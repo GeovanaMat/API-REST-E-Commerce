@@ -4,7 +4,7 @@
 
 
 ```mermaid
-EcommerceDiagram
+erDiagram
     CUSTOMER {
         string id PK "ID do Cliente"
         string name "Nome"
@@ -46,4 +46,3 @@ EcommerceDiagram
     PRODUCT ||--o{ ORDER_ITEM : "is part of"
     ORDER ||--o{ ORDER_ITEM : "contains"
     CUSTOMER ||--o{ ORDER : places
-```
