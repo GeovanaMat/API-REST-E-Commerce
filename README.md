@@ -41,7 +41,7 @@ erDiagram
         decimal unitPrice "Preço Unitário"
     }
 
-    CUSTOMER ||--|| PROFILE : has
+    CUSTOMER ||--o| PROFILE : has
     CATEGORY ||--o{ PRODUCT : contains
     PRODUCT ||--o{ ORDER_ITEM : "is part of"
     ORDER ||--o{ ORDER_ITEM : "contains"
