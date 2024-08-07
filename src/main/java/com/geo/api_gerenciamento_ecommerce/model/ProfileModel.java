@@ -12,7 +12,7 @@ public class ProfileModel {
     private String phone;
 
     @OneToOne(mappedBy = "profile",fetch = FetchType.LAZY)
-    private CustomerModel customerModel;
+    private CustomerModel customer;
 
     public Long getId() {
         return id;
@@ -38,11 +38,11 @@ public class ProfileModel {
         this.phone = phone;
     }
 
-    public CustomerModel getCustomerModel() {
-        return customerModel;
+    public CustomerModel getCustomer() {
+        return customer;
     }
 
-    public void setCustomerModel(CustomerModel customerModel) {
-        this.customerModel = customerModel;
+    public void setCustomer(CustomerModel customer) {
+        this.customer = customer;
     }
 }

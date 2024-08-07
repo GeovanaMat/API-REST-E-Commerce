@@ -22,10 +22,10 @@ public class OrderModel {
     //Relacionamentos
     @ManyToOne
     @JoinColumn(name = "customer_id")
-    private CustomerModel customerModel;
+    private CustomerModel customer;
 
-    @OneToMany(mappedBy = "orderModel",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    private Set<OrderItemModel> orderItemModelSet;
+    @OneToMany(mappedBy = "order",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private Set<OrderItemModel> orderItemList;
 
     public Long getId() {
         return id;
@@ -51,19 +51,19 @@ public class OrderModel {
         this.totalAmount = totalAmount;
     }
 
-    public CustomerModel getCustomerModel() {
-        return customerModel;
+    public CustomerModel getCustomer() {
+        return customer;
     }
 
-    public void setCustomerModel(CustomerModel customerModel) {
-        this.customerModel = customerModel;
+    public void setCustomer(CustomerModel customer) {
+        this.customer = customer;
     }
 
-    public Set<OrderItemModel> getOrderItemModelSet() {
-        return orderItemModelSet;
+    public Set<OrderItemModel> getOrderItemList() {
+        return orderItemList;
     }
 
-    public void setOrderItemModelSet(Set<OrderItemModel> orderItemModelSet) {
-        this.orderItemModelSet = orderItemModelSet;
+    public void setOrderItemList(Set<OrderItemModel> orderItemList) {
+        this.orderItemList = orderItemList;
     }
 }

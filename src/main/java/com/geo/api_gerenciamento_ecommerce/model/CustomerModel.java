@@ -18,8 +18,8 @@ public class CustomerModel {
     @JoinColumn(name = "profile_id")
     private ProfileModel profile;
 
-    @OneToMany(mappedBy = "customerModel",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    private Set<OrderModel>  OrderList;
+    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private Set<OrderModel>  orderList;
 
 
     public Long getId() {
@@ -55,10 +55,10 @@ public class CustomerModel {
     }
 
     public Set<OrderModel> getOrderList() {
-        return OrderList;
+        return orderList;
     }
 
     public void setOrderList(Set<OrderModel> orderList) {
-        OrderList = orderList;
+        this.orderList = orderList;
     }
 }

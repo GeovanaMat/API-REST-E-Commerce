@@ -3,5 +3,5 @@ package com.geo.api_gerenciamento_ecommerce.repository;
 import com.geo.api_gerenciamento_ecommerce.model.CustomerModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ProductRepository extends JpaRepository<CustomerModel,Long> {
+public interface ProductsRepository extends JpaRepository<CustomerModel,Long> {
 }

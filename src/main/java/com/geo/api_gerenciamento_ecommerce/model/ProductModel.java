@@ -15,10 +15,10 @@ public class ProductModel {
     private Double price;
 
     @Enumerated(EnumType.STRING)
-    private CategoryModel categoryModel;
+    private CategoryModel category;
 
-    @OneToMany(mappedBy = "productModel",fetch = FetchType.LAZY)
-    private Set<OrderItemModel> orderItemModel;
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
+    private Set<OrderItemModel> orderItem;
 
     public Long getId() {
         return id;
@@ -52,19 +52,19 @@ public class ProductModel {
         this.price = price;
     }
 
-    public CategoryModel getCategoryModel() {
-        return categoryModel;
+    public CategoryModel getCategory() {
+        return category;
     }
 
-    public void setCategoryModel(CategoryModel categoryModel) {
-        this.categoryModel = categoryModel;
+    public void setCategory(CategoryModel category) {
+        this.category = category;
     }
 
-    public Set<OrderItemModel> getOrderItemModel() {
-        return orderItemModel;
+    public Set<OrderItemModel> getOrderItem() {
+        return orderItem;
     }
 
-    public void setOrderItemModel(Set<OrderItemModel> orderItemModel) {
-        this.orderItemModel = orderItemModel;
+    public void setOrderItem(Set<OrderItemModel> orderItem) {
+        this.orderItem = orderItem;
     }
 }

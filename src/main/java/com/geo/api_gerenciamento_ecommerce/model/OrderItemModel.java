@@ -14,11 +14,11 @@ public class OrderItemModel {
 
     @ManyToOne
     @JoinColumn(name = "order_id")
-    private OrderModel orderModel;
+    private OrderModel order;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
-    private ProductModel productModel;
+    private ProductModel product;
 
     public Long getId() {
         return id;
@@ -44,19 +44,20 @@ public class OrderItemModel {
         this.unitPrice = unitPrice;
     }
 
-    public OrderModel getOrderModel() {
-        return orderModel;
+
+    public OrderModel getOrder() {
+        return order;
     }
 
-    public void setOrderModel(OrderModel orderModel) {
-        this.orderModel = orderModel;
+    public void setOrder(OrderModel order) {
+        this.order = order;
     }
 
-    public ProductModel getProductModel() {
-        return productModel;
+    public ProductModel getProduct() {
+        return product;
     }
 
-    public void setProductModel(ProductModel productModel) {
-        this.productModel = productModel;
+    public void setProduct(ProductModel product) {
+        this.product = product;
     }
 }
