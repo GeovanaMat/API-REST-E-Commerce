@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/customer")
 public class CustomerController {
@@ -22,6 +24,11 @@ public class CustomerController {
     @GetMapping("/{id}")
     public  ResponseEntity<CustomerModel> returnCustomer(@PathVariable(value = "id") Long id){
         return  new ResponseEntity<>(customerService.getCustomerById(id),HttpStatus.OK);
+    }
+
+    @GetMapping
+    public  ResponseEntity<List<CustomerModel>> returnAllCustomer(){
+        return  new ResponseEntity<>(customerService.getAllCustomers(),HttpStatus.OK);
     }
 
 

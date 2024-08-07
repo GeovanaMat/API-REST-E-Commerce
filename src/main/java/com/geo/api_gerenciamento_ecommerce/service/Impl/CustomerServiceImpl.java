@@ -8,6 +8,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CustomerServiceImpl implements CustomerService {
 
@@ -29,6 +31,11 @@ public class CustomerServiceImpl implements CustomerService {
             return customerDataBase.get();
         }
         throw new IllegalArgumentException("Customer not found.");
+    }
+
+    @Override
+    public List<CustomerModel> getAllCustomers() {
+        return customerRepository.findAll();
     }
 
     @Override
