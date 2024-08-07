@@ -11,7 +11,7 @@ public class ProductModel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nome;
-    private String descricao;
+    private String description;
     private Double price;
 
     @Enumerated(EnumType.STRING)
@@ -36,12 +36,12 @@ public class ProductModel {
         this.nome = nome;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Double getPrice() {
