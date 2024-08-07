@@ -40,11 +40,15 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerModel updateCustomerById(Long id, CustomerDto customerDto) {
-        return null;
+        var customerDataBase = getCustomerById(id);
+        BeanUtils.copyProperties(customerDto,customerDataBase);
+        customerRepository.save(customerDataBase);
+        return customerDataBase;
     }
 
     @Override
-    public CustomerModel deleteCustomerById(Long id, CustomerDto customerDto) {
-        return null;
+    public void deleteCustomerById(Long id) {
+        var customerDatabase = getCustomerById(id);
+        customerRepository.delete(customerDatabase);
     }
 }

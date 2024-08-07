@@ -6,6 +6,7 @@ import com.geo.api_gerenciamento_ecommerce.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,7 +23,7 @@ public class CustomerController {
     }
 
     @GetMapping("/{id}")
-    public  ResponseEntity<CustomerModel> returnCustomer(@PathVariable(value = "id") Long id){
+    public  ResponseEntity<CustomerModel> returnOneCustomerById(@PathVariable(value = "id") Long id){
         return  new ResponseEntity<>(customerService.getCustomerById(id),HttpStatus.OK);
     }
 
@@ -31,5 +32,14 @@ public class CustomerController {
         return  new ResponseEntity<>(customerService.getAllCustomers(),HttpStatus.OK);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<CustomerModel> updateCustomerById(@PathVariable(value = "id") Long id, @RequestBody CustomerDto customerDto){
+        return new ResponseEntity<>(customerService.updateCustomerById(id,customerDto),HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteCustomById(@PathVariable(value = "id") Long id){
+        return new ResponseEntity<>("Customer deleted sucessfuly",HttpStatus.OK);
+    }
 
 }

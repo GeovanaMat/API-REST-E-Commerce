@@ -12,5 +12,5 @@ public interface CustomerService {
     public CustomerModel getCustomerById(Long id);
     public List<CustomerModel> getAllCustomers();
     public CustomerModel updateCustomerById(Long id, CustomerDto customerDto);
-    public CustomerModel deleteCustomerById(Long id, CustomerDto customerDto);
+    public void deleteCustomerById(Long id);
 }
