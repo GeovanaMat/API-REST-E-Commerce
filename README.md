@@ -2,8 +2,8 @@
 
 ## Diagrama da API
 
-```
-mermaid
+
+```mermaid
 erDiagram
     CUSTOMER {
         string id PK "ID do Cliente"
