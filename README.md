@@ -46,3 +46,4 @@ erDiagram
     PRODUCT ||--o{ ORDER_ITEM : "is part of"
     ORDER ||--o{ ORDER_ITEM : "contains"
     CUSTOMER ||--o{ ORDER : places
+```

@@ -2,21 +2,33 @@ package com.geo.api_gerenciamento_ecommerce.service.Impl;
 
 import com.geo.api_gerenciamento_ecommerce.dtos.CustomerDto;
 import com.geo.api_gerenciamento_ecommerce.model.CustomerModel;
+import com.geo.api_gerenciamento_ecommerce.repository.CustomerRepository;
 import com.geo.api_gerenciamento_ecommerce.service.CustomerService;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
 
+    @Autowired
+    private CustomerRepository customerRepository;
+
     @Override
     public CustomerModel creatCustomer(CustomerDto customerDto) {
-        System.out.println(customerDto);
-        return null;
+        var newCustomer = new CustomerModel();
+        BeanUtils.copyProperties(customerDto,newCustomer);
+        customerRepository.save(newCustomer);
+        return newCustomer;
     }
 
     @Override
     public CustomerModel getCustomerById(Long id) {
-        return null;
+        var customerDataBase = customerRepository.findById(id);
+        if(customerDataBase.isPresent()) {
+            return customerDataBase.get();
+        }
+        throw new IllegalArgumentException("Customer not found.");
     }
 
     @Override
