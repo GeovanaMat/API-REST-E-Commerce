@@ -1,5 +1,6 @@
 package com.geo.api_gerenciamento_ecommerce.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import org.hibernate.query.Order;
 
@@ -14,8 +15,8 @@ public class CustomerModel {
     private String nome;
     private String email;
 
-    @OneToOne
-    @JoinColumn(name = "profile_id")
+    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private ProfileModel profile;
 
     @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL,fetch = FetchType.LAZY)

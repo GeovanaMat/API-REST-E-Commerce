@@ -20,20 +20,28 @@ public class ProfileServiceImpl implements ProfileService {
     @Autowired
     private ProfileRepository profileRepository;
     @Autowired
-    private CustomerService customerService;
+    private CustomerRepository customerRepository;
 
 
     @Override
     public ProfileModel creatProfile(ProfileDto profileDto) {
-       var customerData = customerService.getCustomerById(profileDto.customerId());
-       if(customerData.getProfile() == null) {
-           var newProfile = new ProfileModel();
-           BeanUtils.copyProperties(profileDto, newProfile);
-           newProfile.setCustomer(customerData);
-           profileRepository.save(newProfile);
-           return newProfile;
-       }
-       throw new ResourceAlreadyExistException("Profile for this user already exists");
+        var customerData = customerRepository.findById(profileDto.customerId());
+        if(customerData.isPresent() && customerData.get().getProfile() == null) {
+            var customer = customerData.get();
+            var newProfile = new ProfileModel();
+            BeanUtils.copyProperties(profileDto, newProfile);
+            newProfile.setCustomer(customer);
+            profileRepository.save(newProfile);
+
+            // Atualiza o cliente com o novo perfil
+            customer.setProfile(newProfile);
+            customerRepository.save(customer);
+
+            return newProfile;
+        } else if (customerData.isEmpty()){
+            throw new ResourceNotFoundException("Customer not found.");
+        }
+        throw new ResourceAlreadyExistException("Profile for this user already exists.");
     }
 
     @Override

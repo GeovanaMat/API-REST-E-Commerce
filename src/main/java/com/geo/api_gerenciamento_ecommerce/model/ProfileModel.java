@@ -1,5 +1,6 @@
 package com.geo.api_gerenciamento_ecommerce.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -11,7 +12,9 @@ public class ProfileModel {
     private String adress;
     private String phone;
 
-    @OneToOne(mappedBy = "profile",fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id")
+    @JsonBackReference
     private CustomerModel customer;
 
     public Long getId() {
