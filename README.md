@@ -1,4 +1,11 @@
+# Projeto E-Commerce Monolítico 
 
+## Tecnologias
+
+![Java](https://img.icons8.com/?size=50&id=13679&format=png&color=000000)
+![Spring Framework](https://img.icons8.com/?size=50&id=90519&format=png&color=000000)
+![PostgresSQL](https://img.icons8.com/?size=50&id=38561&format=png&color=000000)
+![Maven](https://img.icons8.com/?size=50&id=t5FJr3NzrPSm&format=png&color=FFFFFF)
 
 ## Diagrama da API
 
