@@ -1,5 +1,7 @@
 package com.geo.api_gerenciamento_ecommerce.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,14 +12,16 @@ public class OrderItemModel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private Integer quantity;
-    private Double unitPrice;
+
 
     @ManyToOne
     @JoinColumn(name = "order_id")
+    @JsonBackReference
     private OrderModel order;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
+    @JsonManagedReference
     private ProductModel product;
 
     public Long getId() {
@@ -36,13 +40,6 @@ public class OrderItemModel {
         this.quantity = quantity;
     }
 
-    public Double getUnitPrice() {
-        return unitPrice;
-    }
-
-    public void setUnitPrice(Double unitPrice) {
-        this.unitPrice = unitPrice;
-    }
 
 
     public OrderModel getOrder() {

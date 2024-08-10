@@ -11,13 +11,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/orders")
 public class OrderController {
         @Autowired
         private OrderService orderService;
 
         @PostMapping
         public ResponseEntity<OrderModel> createOrder(@RequestBody OrderDto orderDto) {
-            return new ResponseEntity<>(orderService.creatOrder(orderDto), HttpStatus.CREATED);
+            return new ResponseEntity<>(orderService.createOrder(orderDto), HttpStatus.CREATED);
         }
 
         @GetMapping("/{id}")

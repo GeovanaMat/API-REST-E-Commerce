@@ -1,5 +1,7 @@
 package com.geo.api_gerenciamento_ecommerce.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.geo.api_gerenciamento_ecommerce.dtos.OrderDto;
 import jakarta.persistence.*;
 import org.hibernate.query.Order;
@@ -7,6 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -26,13 +29,14 @@ public class OrderModel {
     private CustomerModel customer;
 
     @OneToMany(mappedBy = "order",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JsonManagedReference
     private Set<OrderItemModel> orderItemList;
 
-    public OrderModel(){}
-
-    public OrderModel(OrderDto orderDto) {
-        this.totalAmount = orderDto.totalAmount();
+    public OrderModel(){
+        this.orderItemList = new HashSet<>(); // Inicializa o Set
     }
+
+
 
     public Long getId() {
         return id;
@@ -72,5 +76,9 @@ public class OrderModel {
 
     public void setOrderItemList(Set<OrderItemModel> orderItemList) {
         this.orderItemList = orderItemList;
+    }
+
+    public void addOrderItem(OrderItemModel orderitem){
+        this.orderItemList.add(orderitem);
     }
 }

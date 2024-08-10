@@ -1,6 +1,8 @@
 package com.geo.api_gerenciamento_ecommerce.service.Impl;
 
 import com.geo.api_gerenciamento_ecommerce.dtos.CustomerDto;
+import com.geo.api_gerenciamento_ecommerce.exception.ResourceAlreadyExistException;
+import com.geo.api_gerenciamento_ecommerce.exception.ResourceNotFoundException;
 import com.geo.api_gerenciamento_ecommerce.model.CustomerModel;
 import com.geo.api_gerenciamento_ecommerce.repository.CustomerRepository;
 import com.geo.api_gerenciamento_ecommerce.service.CustomerService;
@@ -16,6 +18,14 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     private CustomerRepository customerRepository;
 
+    /**
+     * Creates a new customer based on the provided customerDto.
+     *
+     * @param customerDto the data transfer object containing customer details
+     * @return the created customerModel
+     *
+     * */
+
     @Override
     public CustomerModel creatCustomer(CustomerDto customerDto) {
         var newCustomer = new CustomerModel();
@@ -30,7 +40,7 @@ public class CustomerServiceImpl implements CustomerService {
         if(customerDataBase.isPresent()) {
             return customerDataBase.get();
         }
-        throw new IllegalArgumentException("Customer not found.");
+        throw new ResourceNotFoundException("Customer not found.");
     }
 
     @Override

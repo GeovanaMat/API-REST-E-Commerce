@@ -1,7 +1,9 @@
 package com.geo.api_gerenciamento_ecommerce.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -10,16 +12,20 @@ public class ProductModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String nome;
+    private String name;
     private String description;
     private Double price;
 
     @Enumerated(EnumType.STRING)
-    private CategoryModel category;
+    private Category category;
 
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
+    @JsonBackReference
     private Set<OrderItemModel> orderItem;
 
+    public ProductModel(){
+        this.orderItem = new HashSet<>();
+    }
     public Long getId() {
         return id;
     }
@@ -28,12 +34,12 @@ public class ProductModel {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -52,11 +58,11 @@ public class ProductModel {
         this.price = price;
     }
 
-    public CategoryModel getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(CategoryModel category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
@@ -66,5 +72,13 @@ public class ProductModel {
 
     public void setOrderItem(Set<OrderItemModel> orderItem) {
         this.orderItem = orderItem;
+    }
+
+    public void addOrdemItem(OrderItemModel orderItemModel){
+        this.orderItem.add(orderItemModel);
+    }
+
+    public void addOrderItem(OrderItemModel orderItem) {
+        this.orderItem.add(orderItem);
     }
 }

@@ -1,5 +1,6 @@
 package com.geo.api_gerenciamento_ecommerce.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import org.hibernate.query.Order;
@@ -20,6 +21,7 @@ public class CustomerModel {
     private ProfileModel profile;
 
     @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JsonBackReference
     private Set<OrderModel>  orderList;
 
 

@@ -17,12 +17,26 @@ import java.util.List;
 @Service
 public class ProfileServiceImpl implements ProfileService {
 
-    @Autowired
+
     private ProfileRepository profileRepository;
-    @Autowired
+
     private CustomerRepository customerRepository;
 
+    @Autowired
+    public  ProfileServiceImpl(CustomerRepository customerRepository, ProfileRepository profileRepository){
+        this.profileRepository = profileRepository;
+        this.customerRepository = customerRepository;
+    }
 
+    /**
+     * Creates a new profile based on the provided profiletDto. Only create a profile if
+     * costumer don't have a profile.
+     *
+     * @param profileDto the data transfer object containing profile details
+     * @return the created ProfileModel
+     * @throws ResourceNotFoundException if the costumer does not exist.
+     * @throws ResourceAlreadyExistException if profile already exist in database.
+     */
     @Override
     public ProfileModel creatProfile(ProfileDto profileDto) {
         var customerData = customerRepository.findById(profileDto.customerId());
