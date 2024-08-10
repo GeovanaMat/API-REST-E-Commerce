@@ -40,14 +40,13 @@ erDiagram
         string id PK "ID do Pedido"
         string customerId FK "ID do Cliente"
         date orderDate "Data do Pedido"
-        decimal totalAmount "Valor Total"
+        decimal totalAmount "Valor Total" : "total de quantity*PRODUCT.price de todos os order_item"
     }
     ORDER_ITEM {
         string id PK "ID do Item do Pedido"
         string orderId FK "ID do Pedido"
         string productId FK "ID do Produto"
         integer quantity "Quantidade"
-        decimal unitPrice "Preço Unitário"
     }
 
     CUSTOMER ||--o| PROFILE : has
