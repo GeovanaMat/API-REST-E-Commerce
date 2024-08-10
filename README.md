@@ -66,7 +66,7 @@ Antes de começar, certifique-se de que você possui as seguintes ferramentas in
 - Git (opcional): Para clonar o repositório do projeto.
 - IDE (opcional): IntelliJ IDEA, Eclipse, ou qualquer outra de sua preferência.
 - PostgresSQL: Versão 8.7 ou superior.
-- Postman: Para teste da API.
+- Postman(Opcional): Para teste da API.
 
 Usando git poderá criar um clone do repositório:
 
@@ -102,7 +102,7 @@ set DB_NAME=nome-database
 ````
 
 ### Executar o Projeto
-- Executar com Maven para rodar o projeto:
+- Executar projeto com Maven:
   
 ```
 mvn spring-boot:run
