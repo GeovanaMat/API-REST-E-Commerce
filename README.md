@@ -1,6 +1,6 @@
 # Projeto de Gerenciamento de Cliente e Pedidos
 
-Este projeto tem como objetivo demonstrar meus principais conhecimentos sobre Java, Maven, Spring Boot (Spring JPA, Spring Web) e pesistencia dos dados com PostgresSQL. Neste projeto desenvolvi uma API RESTful para o gerenciamento de clientes e seus respectivos pedidos em uma única base de dados. Apliquei ORM para gerar tabelas e os relacionamentos entre as entidades do banco de dados e configurei todos os endpoints.
+Este projeto tem como objetivo demonstrar meus principais conhecimentos sobre Java, Maven, Spring Boot (Spring JPA, Spring Web) e pesistencia dos dados com PostgreSQL. Neste projeto desenvolvi uma API RESTful para o gerenciamento de clientes e seus respectivos pedidos em uma única base de dados. Apliquei ORM para gerar tabelas e os relacionamentos entre as entidades do banco de dados e configurei todos os endpoints.
 
 ## Tecnologias
 
@@ -65,7 +65,7 @@ Antes de começar, certifique-se de que você possui as seguintes ferramentas in
 - Maven: Versão 3.6 ou superior.
 - Git (opcional): Para clonar o repositório do projeto.
 - IDE (opcional): IntelliJ IDEA, Eclipse, ou qualquer outra de sua preferência.
-- PostgresSQL: Versão 8.7 ou superior.
+- PostgreSQL: Versão 8.7 ou superior.
 - Postman(Opcional): Para teste da API.
 
 Usando git poderá criar um clone do repositório:
