@@ -1,11 +1,13 @@
-# Projeto E-Commerce Monolítico 
+# Projeto de Gerenciamento de Cliente e Pedidos
+
+Este projeto tem como objetivo demonstrar meus principais conhecimentos sobre Java, Maven, Spring Boot (Spring JPA, Spring Web) e pesistencia dos dados com PostgresSQL. Neste projeto desenvolvi uma API RESTful para o gerenciamento de clientes e seus respectivos pedidos em uma única base de dados. Apliquei ORM para gerar tabelas e os relacionamentos entre as entidades do banco de dados e configurei todos os endpoints.
 
 ## Tecnologias
 
-![Java](https://img.icons8.com/?size=50&id=13679&format=png&color=000000)
-![Spring Framework](https://img.icons8.com/?size=50&id=90519&format=png&color=000000)
-![PostgresSQL](https://img.icons8.com/?size=50&id=38561&format=png&color=000000)
-![Maven](https://img.icons8.com/?size=50&id=t5FJr3NzrPSm&format=png&color=FFFFFF)
+![Java](https://img.icons8.com/?size=30&id=13679&format=png&color=000000)
+![Spring Framework](https://img.icons8.com/?size=30&id=90519&format=png&color=000000)
+![PostgresSQL](https://img.icons8.com/?size=30&id=38561&format=png&color=000000)
+![Maven](https://img.icons8.com/?size=30&id=t5FJr3NzrPSm&format=png&color=FFFFFF)
 
 ## Diagrama da API
 
@@ -54,3 +56,64 @@ erDiagram
     ORDER ||--o{ ORDER_ITEM : "contains"
     CUSTOMER ||--o{ ORDER : places
 ```
+
+## Instalação
+
+Antes de começar, certifique-se de que você possui as seguintes ferramentas instaladas em sua máquina:
+
+- JDK (Java Development Kit): Versão 17 ou superior.
+- Maven: Versão 3.6 ou superior.
+- Git (opcional): Para clonar o repositório do projeto.
+- IDE (opcional): IntelliJ IDEA, Eclipse, ou qualquer outra de sua preferência.
+- PostgresSQL: Versão 8.7 ou superior.
+- Postman: Para teste da API.
+
+Usando git poderá criar um clone do repositório:
+
+```
+git clone https://github.com/GeovanaMat/API-REST-Gerenciamento-Cliente-e-Pedidos
+```
+
+vá até o diretorio do projeto clonado usando:
+````
+cd API-REST-Gerenciamento-Cliente-e-Pedidos
+````
+
+## Configurando o Ambiente
+
+### Instalar Dependências
+O Maven cuidará das dependências do projeto. Para instalar todas as dependências necessárias, execute:
+
+````
+mvn clean install
+````
+
+Este comando limpará quaisquer arquivos antigos, baixará e instalará todas as dependências especificadas no arquivo pom.xml, e construirá o projeto.
+
+
+### Configurar Variáveis de Ambiente 
+O  projeto requer variáveis de ambiente específicas, execute esse código para definir as variávies de ambiente:
+
+````
+set DB_HOST=localhost
+set DB_USER=seu-usuario
+set DB_PASSWORD=sua-senha
+set DB_NAME=nome-database
+````
+
+### Executar o Projeto
+- Executar com Maven para rodar o projeto:
+  
+```
+mvn spring-boot:run
+````
+
+**A aplicação estará disponível no endereço padrão, como http://localhost:8080.**
+
+Acesse `http://localhost:8080` no navegador.
+
+## Teste de endpoints
+
+No navegador você poderá acessar os seguinte URL para acessar Swagger UI para conhecer todos os endpoints:
+#### `/swagger-ui.html`
+
