@@ -62,4 +62,8 @@ public class CustomerModel {
     public void setOrderList(Set<OrderModel> orderList) {
         this.orderList = orderList;
     }
+
+    public void addOrder(OrderModel order){
+        this.orderList.add(order);
+    }
 }

@@ -7,7 +7,6 @@ import java.util.Set;
 public record ProductDto(String nome,
                          String description,
                          Double price,
-                         String category,
-                         Set<OrderItemDto> orderItemDtos ) {
+                         String category) {
 }
 

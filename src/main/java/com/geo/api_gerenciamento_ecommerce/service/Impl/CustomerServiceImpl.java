@@ -51,4 +51,5 @@ public class CustomerServiceImpl implements CustomerService {
         var customerDatabase = getCustomerById(id);
         customerRepository.delete(customerDatabase);
     }
+
 }

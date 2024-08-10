@@ -1,5 +1,6 @@
 package com.geo.api_gerenciamento_ecommerce.model;
 
+import com.geo.api_gerenciamento_ecommerce.dtos.OrderDto;
 import jakarta.persistence.*;
 import org.hibernate.query.Order;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -26,6 +27,12 @@ public class OrderModel {
 
     @OneToMany(mappedBy = "order",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private Set<OrderItemModel> orderItemList;
+
+    public OrderModel(){}
+
+    public OrderModel(OrderDto orderDto) {
+        this.totalAmount = orderDto.totalAmount();
+    }
 
     public Long getId() {
         return id;
