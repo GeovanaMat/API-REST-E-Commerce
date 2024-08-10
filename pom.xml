@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.geo</groupId>
-	<artifactId>api-gerenciamento-ecommerce</artifactId>
+	<artifactId>api-gerenciamento-mvecommerce</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>api-gerenciamento-ecommerce</name>
 	<description>Demo project for Spring Boot</description>

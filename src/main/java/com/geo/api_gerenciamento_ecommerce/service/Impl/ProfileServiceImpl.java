@@ -18,9 +18,9 @@ import java.util.List;
 public class ProfileServiceImpl implements ProfileService {
 
 
-    private ProfileRepository profileRepository;
+    private final ProfileRepository profileRepository;
 
-    private CustomerRepository customerRepository;
+    private final CustomerRepository customerRepository;
 
     @Autowired
     public  ProfileServiceImpl(CustomerRepository customerRepository, ProfileRepository profileRepository){
@@ -37,6 +37,7 @@ public class ProfileServiceImpl implements ProfileService {
      * @throws ResourceNotFoundException if the costumer does not exist.
      * @throws ResourceAlreadyExistException if profile already exist in database.
      */
+
     @Override
     public ProfileModel creatProfile(ProfileDto profileDto) {
         var customerData = customerRepository.findById(profileDto.customerId());
