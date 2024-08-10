@@ -49,7 +49,7 @@ erDiagram
         integer quantity "Quantidade"
     }
 
-    CUSTOMER ||--o| PROFILE : tem um
+    CUSTOMER ||--o| PROFILE : "tem um"
     CATEGORY ||--o{ PRODUCT : contem
     PRODUCT ||--o{ ORDER_ITEM : "é parte de"
     ORDER ||--o{ ORDER_ITEM : "contem"
